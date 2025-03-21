@@ -102,10 +102,8 @@
 
 @section('script')
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#btn-add-hardware').click(function() {
-            
-        })
-    })
+$(document).ready(function() {
+	
+});
 </script>
 @endsection
