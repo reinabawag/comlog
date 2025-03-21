@@ -40,7 +40,7 @@ class ComputerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validate = $this->validate($request, [
             'hostname' => 'required|unique:computers|max:255',
             'user' => 'required|max:255',
             'department_id' => 'required|integer',
@@ -48,6 +48,8 @@ class ComputerController extends Controller
             'internet' => 'ip|nullable',
             'macAddress' => 'required'
         ]);
+
+        dd($request->request);
 
         $computer = new Computer;
 

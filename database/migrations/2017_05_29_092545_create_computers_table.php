@@ -15,10 +15,17 @@ class CreateComputersTable extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('hostname')->unique();
-            $table->string('user');
-            $table->string('internet');
-            $table->string('syteline');
+
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('department_id')->unsigned()->nullable();
+            $table->foreign('department_id')->references('id')->on('departments')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->string('description');
+            $table->string('make');
+            $table->string('model');
+            $table->string('sn');
             $table->timestamps();
         });
     }
